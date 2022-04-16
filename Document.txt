@@ -1,0 +1,42 @@
+login:
+	curl --location --request POST 'http://localhost:8080/api/login' \
+	--header 'Content-Type: application/json' \
+	--data-raw '{
+	    "userName":"AdminVL",
+	    "password":"123456"
+	}'
+
+
+getListNews
+	curl --location --request GET 'http://localhost:8080/api/news'
+
+getDtailNews
+	curl --location --request GET 'http://localhost:8080/api/news/2' \
+	--header 'Content-Type: application/json' \
+	--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTAwNDU1ODgsImV4cCI6MTY1MjYzNzU4OH0.VJp4L00nx2rzchvnJf9AgvUb2LUOOz0ITazpydrAQ20' \
+
+createNews
+	curl --location --request POST 'http://localhost:8080/api/createNews' \
+	--header 'Content-Type: application/json' \
+	--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTAwNDU1ODgsImV4cCI6MTY1MjYzNzU4OH0.VJp4L00nx2rzchvnJf9AgvUb2LUOOz0ITazpydrAQ20' \
+	--data-raw '{
+	    	"title":"create 2",
+	    	"shortDescription":"14564",
+        	"poster": "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"
+		}'
+
+updateNews
+	curl --location --request POST 'http://localhost:8080/api/updateNews' \
+	--header 'Content-Type: application/json' \
+	--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTAwNDU1ODgsImV4cCI6MTY1MjYzNzU4OH0.VJp4L00nx2rzchvnJf9AgvUb2LUOOz0ITazpydrAQ20' \
+	--data-raw '{
+    		"newsId":3,
+	    "title":"create 2 update",
+	    "shortDescription":"14564",
+        "poster": "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"
+	}'
+
+deleteNews
+	curl --location --request GET 'http://localhost:8080/api/deleteNews/3' \
+	--header 'Content-Type: application/json' \
+	--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTAwNDU1ODgsImV4cCI6MTY1MjYzNzU4OH0.VJp4L00nx2rzchvnJf9AgvUb2LUOOz0ITazpydrAQ20'
